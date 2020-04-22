@@ -1,0 +1,15 @@
+{
+  "name": "tailwind-example",
+  "version": "1.0.0",
+  "description": "Open ./dist/index.html in your favourite browser",
+  "devDependencies": {
+    "postcss-cli": "^7.1.0",
+    "autoprefixer": "^9.7.6"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.3.4"
+  },
+  "scripts": {
+    "build": "postcss -u tailwindcss autoprefixer -o ./dist/app.postcss.css ./src/app.css"
+  }
+}
