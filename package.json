@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Open ./dist/index.html in your favourite browser",
   "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "clean-css-cli": "^4.3.0",
     "postcss-cli": "^7.1.0",
-    "autoprefixer": "^9.7.6"
-  },
-  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
     "tailwindcss": "^1.3.4"
   },
+  "dependencies": {},
   "scripts": {
-    "build": "postcss -u tailwindcss autoprefixer -o ./dist/app.postcss.css ./src/app.css"
+    "build": "cp -f ./src/index.html ./dist/index.html && yarn build:purge && yarn build:cleancss",
+    "build:purge": "postcss -o ./dist/app.postcss.css ./src/app.css",
+    "build:cleancss": "cleancss -o ./dist/app.cleancss.css ./dist/app.postcss.css"
   }
 }
